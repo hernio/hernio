@@ -3,204 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Belut Kriuk - Olahan Belut Premium</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Belut Goreng Krispi - Cuma 20 Ribu!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #D35400; /* Warna oranye gorengan matang */
-            --secondary: #F39C12;
-            --dark: #2C3E50;
-            --light: #ECF0F1;
-            --white: #ffffff;
-            --glass: rgba(255, 255, 255, 0.9);
+            --gold: #F59E0B;
+            --dark: #1C1917;
+            --light: #FFFBEB;
+            --green: #25D366;
         }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
         
-        body { background-color: #FAFAFA; color: var(--dark); line-height: 1.6; }
-
-        /* Navbar Glassmorphism */
-        nav {
-            position: fixed; top: 0; width: 100%; z-index: 1000;
-            background: var(--glass); backdrop-filter: blur(10px);
-            padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-        .logo { font-size: 1.5rem; font-weight: 700; color: var(--primary); text-decoration: none; }
-        .nav-links a { margin-left: 2rem; text-decoration: none; color: var(--dark); font-weight: 500; transition: 0.3s; }
-        .nav-links a:hover { color: var(--primary); }
-        .btn-wa { 
-            background: #25D366; color: white !important; padding: 0.5rem 1.5rem; 
-            border-radius: 50px; font-weight: 600; display: inline-flex; align-items: center; gap: 8px;
-        }
+        body { background-color: var(--light); color: var(--dark); line-height: 1.6; }
 
         /* Hero Section */
-        header {
-            min-height: 100vh; display: flex; align-items: center; padding: 0 5%;
-            background: linear-gradient(135deg, #FFF8F0 0%, #FFFFFF 100%);
-            margin-top: 60px;
+        .hero {
+            min-height: 100vh; display: flex; flex-direction: column; 
+            align-items: center; justify-content: center; text-align: center;
+            padding: 2rem 1rem; position: relative; overflow: hidden;
         }
-        .hero-text { flex: 1; max-width: 600px; }
-        .hero-text h1 { font-size: 3.5rem; line-height: 1.2; margin-bottom: 1rem; color: var(--dark); }
-        .hero-text span { color: var(--primary); }
-        .hero-text p { font-size: 1.1rem; color: #666; margin-bottom: 2rem; }
-        .hero-img { flex: 1; display: flex; justify-content: center; }
-        .hero-img img { 
-            max-width: 100%; height: auto; border-radius: 30px; 
-            box-shadow: 20px 20px 0px var(--secondary); transform: rotate(-3deg);
-        }
-
-        /* Produk Section */
-        .section { padding: 5rem 5%; }
-        .section-title { text-align: center; margin-bottom: 3rem; }
-        .section-title h2 { font-size: 2.5rem; margin-bottom: 0.5rem; }
-        .section-title p { color: #777; }
-
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
-        .card { 
-            background: white; border-radius: 20px; overflow: hidden; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.3s; border: 1px solid #eee;
-        }
-        .card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(211, 84, 0, 0.15); }
-        .card-img { height: 200px; background: #ddd; display: flex; align-items: center; justify-content: center; font-size: 3rem; }
-        .card-body { padding: 1.5rem; }
-        .badge { background: #FFEAA7; color: var(--dark); padding: 4px 10px; border-radius: 10px; font-size: 0.8rem; font-weight: 600; }
-        .price { font-size: 1.4rem; font-weight: 700; color: var(--primary); margin: 10px 0; }
-        .btn-order { 
-            width: 100%; padding: 12px; border: none; background: var(--dark); color: white; 
-            border-radius: 12px; cursor: pointer; font-weight: 600; transition: 0.3s;
-        }
-        .btn-order:hover { background: var(--primary); }
-
-        /* Keunggulan */
-        .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; text-align: center; margin-top: 2rem; }
-        .feature-item i { font-size: 2rem; color: var(--primary); margin-bottom: 1rem; display: block; }
         
-        /* Footer */
-        footer { background: var(--dark); color: white; padding: 3rem 5%; text-align: center; }
-        .socials { margin-top: 1rem; display: flex; justify-content: center; gap: 1rem; }
-        .socials a { color: white; opacity: 0.7; text-decoration: none; }
+        .badge-promo {
+            background: var(--gold); color: white; padding: 8px 20px;
+            border-radius: 50px; font-weight: 800; font-size: 0.9rem;
+            margin-bottom: 1.5rem; animation: pulse 2s infinite;
+        }
 
-        @media (max-width: 768px) {
-            header { flex-direction: column-reverse; text-align: center; padding-top: 2rem; }
-            .hero-text h1 { font-size: 2.5rem; }
+        h1 { font-size: 3rem; font-weight: 800; line-height: 1.1; margin-bottom: 1rem; max-width: 600px; }
+        h1 span { color: var(--gold); display: block; font-size: 4rem; }
+        
+        .desc { font-size: 1.1rem; color: #57534E; max-width: 500px; margin-bottom: 2rem; }
+
+        .price-tag {
+            font-size: 2.5rem; font-weight: 800; color: var(--dark);
+            margin-bottom: 2rem; display: flex; align-items: baseline; gap: 10px;
+        }
+        .price-tag small { font-size: 1rem; font-weight: 400; color: #78716C; text-decoration: line-through; }
+
+        /* Tombol Beli Gede */
+        .btn-beli {
+            background: var(--green); color: white; text-decoration: none;
+            padding: 18px 40px; border-radius: 16px; font-size: 1.2rem;
+            font-weight: 700; display: inline-flex; align-items: center; gap: 10px;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); transition: 0.3s;
+            border: none; cursor: pointer;
+        }
+        .btn-beli:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 15px 30px rgba(37, 211, 102, 0.5); }
+
+        /* Fitur Cepat */
+        .features {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
+            max-width: 600px; width: 100%; margin-top: 3rem;
+        }
+        .feat-item { background: white; padding: 1rem; border-radius: 12px; font-size: 0.85rem; font-weight: 600; }
+        .feat-icon { font-size: 1.5rem; margin-bottom: 0.5rem; display: block; }
+
+        /* Gambar Produk Placeholder */
+        .product-img {
+            width: 280px; height: 280px; background: #ddd; border-radius: 50%;
+            margin: 2rem auto; display: flex; align-items: center; justify-content: center;
+            font-size: 4rem; border: 8px solid white; box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            background-image: url('https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');
+            background-size: cover; background-position: center;
+        }
+
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2.2rem; } h1 span { font-size: 3rem; }
             .features { grid-template-columns: 1fr; }
-            .nav-links { display: none; } /* Simplified for mobile demo */
+            .btn-beli { width: 100%; justify-content: center; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigasi -->
-    <nav>
-        <a href="#" class="logo">🐟 BelutKriuk.</a>
-        <div class="nav-links">
-            <a href="#produk">Menu</a>
-            <a href="#tentang">Tentang</a>
-            <a href="#testimoni">Testimoni</a>
-            <a href="https://wa.me/6281234567890?text=Halo%20kak,%20saya%20mau%20pesan%20belut%20gorengnya!" target="_blank" class="btn-wa">
-                Pesan via WA
-            </a>
-        </div>
-    </nav>
+    <section class="hero">
+        <div class="badge-promo">🔥 PROMO HARI INI</div>
+        
+        <!-- GANTI FOTO PRODUK DI BAGIAN CSS .product-img -->
+        <div class="product-img"></div> 
 
-    <!-- Hero Section -->
-    <header>
-        <div class="hero-text">
-            <h1>Renyah di Luar, <br><span>Gurih</span> di Dalam!</h1>
-            <p>Olahan belut segar pilihan dengan bumbu rahasia warisan leluhur. Tanpa amis, tanpa pengawet, cocok buat lauk atau camilan sehat.</p>
-            <a href="#produk" style="background:var(--primary); color:white; padding:15px 30px; border-radius:50px; text-decoration:none; font-weight:600;">Lihat Menu Hari Ini 👇</a>
-        </div>
-        <div class="hero-img">
-            <!-- Ganti src ini dengan foto produk asli kamu -->
-            <img src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Belut Goreng Crispy">
-        </div>
-    </header>
+        <h1>Belut Goreng Krispi <span>Rp 20.000</span></h1>
+        
+        <p class="desc">
+            Renyah tahan lama, bumbu meresap sampai tulang. 
+            Tanpa amis, tanpa pengawet. Cocok buat lauk nasi hangat atau teman nonton drakor!
+        </p>
 
-    <!-- Keunggulan -->
-    <section class="section" id="tentang" style="background: white;">
-        <div class="section-title">
-            <h2>Kenapa Harus BelutKriuk?</h2>
-            <p>Kualitas premium yang nggak bisa kamu temukan di tempat lain</p>
+        <div class="price-tag">
+            <small>Rp 35.000</small> Rp 20.000 / bungkus
         </div>
+
+        <!-- GANTI NOMOR WA DI BAWAH INI -->
+        <a href="#" onclick="orderNow()" class="btn-beli">
+            🛒 Pesan Sekarang via WA
+        </a>
+
         <div class="features">
-            <div class="feature-item">
-                <i>🌿</i>
-                <h3>Bahan Segar Harian</h3>
-                <p>Belut ditangkap pagi hari dari petani lokal, langsung diolah saat masih fresh.</p>
-            </div>
-            <div class="feature-item">
-                <i>🔥</i>
-                <h3>Digoreng Double Fry</h3>
-                <p>Teknik penggorengan khusus biar tetap renyah tahan 3 hari meski tanpa MSG berlebih.</p>
-            </div>
-            <div class="feature-item">
-                <i>📦</i>
-                <h3>Packing Vakum Aman</h3>
-                <p>Kirim ke seluruh Indonesia aman sampai tujuan, tinggal panaskan sebentar.</p>
-            </div>
+            <div class="feat-item"><span class="feat-icon">⚡</span>Digoreng Dadakan</div>
+            <div class="feat-item"><span class="feat-icon">📦</span>Packing Vakum Aman</div>
+            <div class="feat-item"><span class="feat-icon">💯</span>Garansi Rasa</div>
         </div>
     </section>
-
-    <!-- Produk -->
-    <section class="section" id="produk">
-        <div class="section-title">
-            <h2>Pilihan Favorit</h2>
-            <p>Dari yang pedas nendang sampai original gurih</p>
-        </div>
-        <div class="product-grid">
-            <!-- Produk 1 -->
-            <div class="card">
-                <div class="card-img" style="background:#FFF3E0;">🍗</div>
-                <div class="card-body">
-                    <span class="badge">Best Seller</span>
-                    <h3>Belut Original Crispy</h3>
-                    <p>Rasa gurih alami belut dengan tepung tipis. Cocok buat anak-anak.</p>
-                    <div class="price">Rp 45.000</div>
-                    <button class="btn-order" onclick="order('Original')">Pesan Sekarang</button>
-                </div>
-            </div>
-            <!-- Produk 2 -->
-            <div class="card">
-                <div class="card-img" style="background:#FFEBEE;">🌶️</div>
-                <div class="card-body">
-                    <span class="badge" style="background:#EF9A9A; color:white;">Pedas Level 3</span>
-                    <h3>Belut Pedas Manis</h3>
-                    <p>Perpaduan pedas cabai rawit dan manis gula aren. Nagih banget!</p>
-                    <div class="price">Rp 48.000</div>
-                    <button class="btn-order" onclick="order('Pedas Manis')">Pesan Sekarang</button>
-                </div>
-            </div>
-            <!-- Produk 3 -->
-            <div class="card">
-                <div class="card-img" style="background:#E8F5E9;">🧄</div>
-                <div class="card-body">
-                    <span class="badge">Premium</span>
-                    <h3>Belut Bawang Putih</h3>
-                    <p>Aroma bawang putih sangrai yang kuat. Sensasi makan beda kelas.</p>
-                    <div class="price">Rp 52.000</div>
-                    <button class="btn-order" onclick="order('Bawang Putih')">Pesan Sekarang</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <h3>BelutKriuk Nusantara</h3>
-        <p>Jl. Raya Kuliner No. 88, Yogyakarta | Buka Setiap Hari 08.00 - 20.00 WIB</p>
-        <div class="socials">
-            <a href="#">Instagram</a> • <a href="#">TikTok</a> • <a href="#">Shopee</a>
-        </div>
-        <p style="margin-top:2rem; font-size:0.8rem; opacity:0.5;">© 2024 BelutKriuk. All rights reserved.</p>
-    </footer>
 
     <script>
-        function order(varian) {
-            const wa = "6281234567890"; // GANTI DENGAN NOMOR WA KAMU
-            const text = `Halo kak, saya mau pesan Belut Goreng varian *${varian}*. Apakah masih ready?`;
-            window.open(`https://wa.me/${wa}?text=${encodeURIComponent(text)}`, '_blank');
+        function orderNow() {
+            // GANTI NOMOR INI DENGAN NOMOR WA KAMU (Format: 628xxx)
+            const nomorWA = "6281234567890"; 
+            
+            const pesan = `Halo kak, saya mau pesan *Belut Goreng Krispi* promo Rp 20.000 nya. Masih ready kah?`;
+            window.open(`https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan)}`, '_blank');
         }
     </script>
+
 </body>
 </html>
